@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Astro93</title>
+<style>
+  :root{--bg:#080B16;--text:#c9d1e4;--muted:#8b93aa;--gold:#E8C36B;--line:#1b2340;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:16px/1.6 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:56px 20px}
+  .wrap{max-width:720px;margin:0 auto}
+  h1{font-family:Georgia,"Times New Roman",serif;color:var(--gold);font-size:44px;margin:14px 0 6px;letter-spacing:.5px}
+  .lead{font-size:19px;color:#dfe5f2;margin:0 0 26px}
+  a{color:var(--gold);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .links a{display:inline-block;margin-right:22px;font-weight:600}
+  .logo{width:52px;height:52px;color:var(--gold)}
+  .foot{margin-top:40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:18px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5z" />
+      <path d="M19 3v3M17.5 4.5h3" />
+    </svg>
+    <h1>Astro93</h1>
+    <p class="lead">A personal astrology companion — precise natal charts, daily transits,
+      and a warm daily reading. Calculated with Swiss-Ephemeris-grade accuracy, and it
+      works offline.</p>
+    <p class="links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </p>
+    <div class="foot">Contact: <a href="mailto:jure-publishing@agentmail.to">jure-publishing@agentmail.to</a></div>
+  </div>
+</body>
+</html>
