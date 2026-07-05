@@ -63,7 +63,12 @@
         See <a href="https://www.revenuecat.com/privacy/">RevenueCat's privacy policy</a>.</li>
       <li><strong>Google Play Billing</strong> — Google processes any payment; we never
         see or store your payment details.</li>
-      <li><strong>AI readings</strong> — processed via your server (Supabase, EU) on their way to the AI provider.
+      <li><strong>AI readings</strong> - when you request an AI reading, the derived chart data
+        (planet positions and aspects computed from your birth details), the day's transits,
+        and the profile's preferred name are sent to our proxy server (hosted on Supabase,
+        EU region), which forwards them to the AI provider via OpenRouter. We do not store the
+        content of these requests; our server keeps only an anonymous purchase identifier and
+        daily request counts to enforce plan limits and prevent abuse.
     </ul>
 
     <h2>What we do not do</h2>
