@@ -1,428 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jure Sršen — Indie Developer</title>
-<meta name="description" content="Jure Sršen — independent developer from Slovenia building desktop, web, and mobile apps across Nostr, AI, and smart home. Portfolio, app support, and privacy policies." />
+<meta name="description" content="Jure Sršen — independent developer from Slovenia building desktop, web, and mobile apps across Nostr, AI, and the smart home. Portfolio, app support, and privacy policies.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%230b0b0c'/%3E%3Ctext x='100' y='122' font-family='Georgia, serif' font-style='italic' font-size='88' fill='%23ff5a1f' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
 <!--
   ============================================================================
   SINGLE-FILE SITE — no build step. Edit text directly in the HTML below.
   • CONTACT: search jure-publishing@agentmail.to to change it.
-  • PROJECTS: each is an <article class="card"> in #projects / #soon.
-  • TypeOn description is based on its App Store listing — confirm/adjust the text.
-  • LEGAL: #privacy / #terms / #support. Google Play privacy URL = https://DOMAIN/#privacy
-  • Update "Last updated" dates in the legal sections when you change them.
+  • PROJECTS: featured cards live in #projects; the numbered grid below it.
+  • LEGAL PAGES:
+      privacy.html / terms.html            — Tinnitus Notch + Calm Dog (root)
+      tinnitus-notch/privacy|terms.html    — copies of the root pages
+      astro93/privacy.html + terms.html    — Astro93, maintained BY HAND and
+        referenced by its Google Play listing: NEVER move or overwrite these.
+  • The legacy Google Play privacy URL https://DOMAIN/#privacy is preserved by
+    the hash-redirect script in this <head> — keep it until the Tinnitus Notch
+    Play listing is updated to point at /privacy.html directly.
   ============================================================================
 -->
+<script>
+  // Legacy Play-listing URLs pointed at anchors on the old single-page site.
+  (function () {
+    var h = location.hash;
+    if (h === '#privacy') location.replace('privacy.html');
+    else if (h === '#terms') location.replace('terms.html');
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;1,400&family=Fragment+Mono&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#fbfbfd; --surface:#ffffff; --text:#1a1d24; --muted:#5c6473;
-    --line:#e7e9ef; --accent:#2f6f6a; --accent-soft:#e6f0ef; --shadow:0 1px 3px rgba(20,24,40,.06),0 8px 24px rgba(20,24,40,.05);
-    --radius:16px; --max:1080px;
+    --bg:#0b0b0c; --surface:#141417;
+    --line:rgba(255,255,255,0.09); --line-bright:rgba(255,255,255,0.22);
+    --ink:#f3f1ea; --ink-dim:#9a978f; --accent:#ff5a1f;
+    --font-display:'Source Serif 4',serif;
+    --font-mono:'Fragment Mono',monospace;
+    --font-body:'Public Sans',sans-serif;
   }
-  @media (prefers-color-scheme: dark){
-    :root{ --bg:#0f1115; --surface:#171a21; --text:#e8eaf0; --muted:#9aa3b2;
-      --line:#262a33; --accent:#5fb3ab; --accent-soft:#15201f; --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 30px rgba(0,0,0,.35); }
+  html{background:var(--bg);scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+  ::selection{background:var(--accent);color:var(--bg)}
+  a{text-decoration:none;color:inherit}
+  h1,h2,h3{font-family:var(--font-display);font-weight:400}
+  .mono{font-family:var(--font-mono)}
+  .wrap{max-width:1100px;margin:0 auto;padding-left:48px;padding-right:48px}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+    padding:22px 48px;background:rgba(11,11,12,0.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .brand{font-family:var(--font-display);font-size:22px;letter-spacing:.2px}
+  .nav nav{display:flex;gap:36px;font-family:var(--font-mono);font-size:13px;letter-spacing:.03em;color:var(--ink-dim)}
+  .nav nav a:hover{color:var(--ink)}
+
+  /* HERO */
+  .hero{padding-top:120px;padding-bottom:96px;animation:fadeUp .7s ease both}
+  .kicker{font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;color:var(--accent);
+    text-transform:uppercase;margin-bottom:28px}
+  .hero h1{font-style:italic;font-size:clamp(44px,6.2vw,84px);line-height:1.05;margin:0 0 32px;max-width:16ch}
+  .hero p{font-size:19px;line-height:1.65;color:var(--ink-dim);max-width:52ch;margin:0 0 44px}
+  .cta{font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;padding:15px 26px;display:inline-block}
+  .cta.primary{background:var(--accent);color:var(--bg);font-weight:600}
+  .cta.primary:hover{opacity:.88}
+  .cta.ghost{border:1px solid var(--line-bright);color:var(--ink)}
+  .cta.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* SECTION HEADERS */
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;
+    border-bottom:1px solid var(--line);padding-bottom:18px}
+  .sec-head h2{font-size:32px;margin:0}
+  .sec-head span{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+
+  /* FEATURED CARDS */
+  .featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px;margin-bottom:88px}
+  .fcard{background:var(--surface);border:1px solid var(--line);padding:40px;display:flex;flex-direction:column}
+  .fcard:hover{border-color:var(--accent)}
+  .fcard .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}
+  .cat{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--ink-dim);text-transform:uppercase}
+  .badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--accent);border:1px solid var(--accent);padding:4px 9px}
+  .fcard h3{font-size:34px;margin:0 0 10px}
+  .fcard .tagline{font-size:17px;color:var(--ink);margin-bottom:14px;font-weight:600}
+  .fcard p.desc{font-size:15.5px;line-height:1.65;color:var(--ink-dim);margin:0 0 28px;flex-grow:1}
+  .fcard .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+    padding-top:20px;border-top:1px solid var(--line)}
+  .status{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+  .btn{font-family:var(--font-mono);font-size:12.5px;padding:9px 16px;border:1px solid var(--line-bright);color:var(--ink)}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* PROJECT GRID */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .gcard{background:var(--bg);padding:32px;display:flex;flex-direction:column;min-height:280px}
+  .gcard:hover{background:var(--surface)}
+  .gcard .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+  .gcard .cat{max-width:18ch}
+  .gcard .num{font-family:var(--font-display);font-style:italic;font-size:20px;color:var(--line-bright)}
+  .gcard h3{font-size:26px;margin:0 0 12px}
+  .gcard p{font-size:14.5px;line-height:1.6;color:var(--ink-dim);margin:0 0 24px;flex-grow:1}
+  .gcard .foot{display:flex;flex-direction:column;gap:14px;padding-top:16px;border-top:1px solid var(--line)}
+  .gcard .status{color:var(--accent);font-size:11.5px}
+  .gcard .links{display:flex;gap:14px;flex-wrap:wrap}
+  .glink{font-family:var(--font-mono);font-size:12.5px;color:var(--ink);border-bottom:1px solid var(--line-bright)}
+  .glink:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;border-top:1px solid var(--line);
+    padding-top:88px;padding-bottom:100px}
+  .about .lede{font-family:var(--font-display);font-size:28px;line-height:1.5;color:var(--ink);margin:0 0 24px}
+  .about p{font-size:15.5px;line-height:1.75;color:var(--ink-dim);margin:0 0 16px;max-width:56ch}
+  .facts{display:flex;flex-direction:column;gap:22px;font-family:var(--font-mono);font-size:14px}
+  .fact{border-bottom:1px solid var(--line);padding-bottom:18px}
+  .fact .label{color:var(--ink-dim);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+
+  /* SUPPORT */
+  .support{border-top:1px solid var(--line);padding-top:88px;padding-bottom:110px}
+  .support .inner{max-width:640px}
+  .support h2{font-size:36px;margin:0 0 20px}
+  .support p{font-size:15.5px;line-height:1.75;color:var(--ink-dim);margin:0 0 32px}
+
+  /* FOOTER */
+  .footer{border-top:1px solid var(--line);padding-top:48px;padding-bottom:48px}
+  .footer .row{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:36px}
+  .footer .brand{font-family:var(--font-display);font-size:22px;margin-bottom:8px}
+  .footer .sub{font-size:14px;color:var(--ink-dim)}
+  .footer nav{display:flex;gap:28px;font-family:var(--font-mono);font-size:13px;color:var(--ink-dim);flex-wrap:wrap}
+  .footer nav a:hover{color:var(--accent)}
+  .footer .legal{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim);border-top:1px solid var(--line);padding-top:24px}
+
+  @media (max-width:760px){
+    .wrap{padding-left:24px;padding-right:24px}
+    .nav{padding:18px 24px}
+    .nav nav{gap:20px}
+    .hero{padding-top:80px;padding-bottom:64px}
+    .featured{grid-template-columns:1fr}
+    .about{grid-template-columns:1fr;gap:40px}
   }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.6;-webkit-font-smoothing:antialiased;}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(12px);
-    background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px}
-  .brand{font-weight:700;letter-spacing:-.02em;font-size:1.05rem;color:var(--text)}
-  .brand span{color:var(--accent)}
-  nav.links{display:flex;gap:24px}
-  nav.links a{color:var(--muted);font-size:.93rem;font-weight:500}
-  nav.links a:hover{color:var(--text);text-decoration:none}
-  @media(max-width:680px){nav.links{display:none}}
-  .hero{padding:92px 0 56px}
-  .eyebrow{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:999px;margin-bottom:22px}
-  .hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.08;letter-spacing:-.03em;margin:0 0 18px;font-weight:800}
-  .hero p.lead{font-size:1.16rem;color:var(--muted);max-width:640px;margin:0 0 30px}
-  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:.96rem;border:1px solid transparent;cursor:pointer}
-  .btn.primary{background:var(--accent);color:#fff}
-  .btn.primary:hover{filter:brightness(1.07);text-decoration:none}
-  .btn.ghost{background:transparent;border-color:var(--line);color:var(--text)}
-  .btn.ghost:hover{border-color:var(--accent);text-decoration:none}
-  section{padding:58px 0;border-top:1px solid var(--line)}
-  .sec-head{margin-bottom:32px}
-  .sec-head h2{font-size:1.6rem;letter-spacing:-.02em;margin:0 0 8px;font-weight:750}
-  .sec-head p{color:var(--muted);margin:0;max-width:640px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .15s ease,border-color .15s ease}
-  .card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
-  .card .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);font-size:1.4rem;margin-bottom:16px}
-  .card h3{margin:0 0 4px;font-size:1.15rem;letter-spacing:-.01em}
-  .card .kind{font-size:.76rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
-  .card p{margin:0 0 18px;color:var(--muted);font-size:.94rem;flex:1}
-  .pill{display:inline-block;font-size:.74rem;font-weight:600;padding:4px 10px;border-radius:999px;letter-spacing:.03em}
-  .pill.soon{background:#fff4e5;color:#9a5b00}
-  .pill.live{background:#e6f6ec;color:#1c7a3e}
-  .pill.dev{background:#eef0ff;color:#3a44b0}
-  @media(prefers-color-scheme:dark){
-    .pill.soon{background:#3a2c12;color:#f0c071}.pill.live{background:#12321f;color:#74d99a}.pill.dev{background:#1c1f3a;color:#9aa3f0}
-  }
-  .card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:4px;gap:12px}
-  .card .foot .links{display:flex;gap:14px;flex-wrap:wrap}
-  .card .foot a{font-weight:600;font-size:.88rem}
-  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
-  @media(max-width:760px){.about-grid{grid-template-columns:1fr}}
-  .about p{color:var(--muted);font-size:1.02rem}
-  .facts{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-  .facts dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 16px;font-size:.95rem}
-  .facts dt{color:var(--muted)}.facts dd{margin:0;font-weight:600}
-  .legal{font-size:.95rem;color:var(--muted)}
-  .legal h2{color:var(--text)}
-  .legal h3{color:var(--text);margin:26px 0 8px;font-size:1.05rem}
-  .legal p,.legal li{color:var(--muted)}
-  .legal .updated{font-size:.82rem;font-style:italic}
-  .legal ul{padding-left:20px}
-  .support-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
-  footer{border-top:1px solid var(--line);padding:40px 0 60px;color:var(--muted);font-size:.9rem}
-  .foot-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-  .foot-links{display:flex;gap:20px;flex-wrap:wrap}
-  .foot-links a{color:var(--muted)}
 </style>
 </head>
-<body>
+<body id="top">
 
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top">Jure Sršen<span>.</span></a>
-    <nav class="links">
+  <!-- NAV -->
+  <header class="nav">
+    <a href="#top" class="brand">Jure Sršen.</a>
+    <nav>
       <a href="#projects">Projects</a>
-      <a href="#soon">Coming soon</a>
       <a href="#about">About</a>
       <a href="#support">Support</a>
-      <a href="#contact">Contact</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<a id="top"></a>
-<div class="hero wrap">
-  <span class="eyebrow">Indie developer · Slovenia</span>
-  <h1>I build small, sharp software — desktop, web, and mobile.</h1>
-  <p class="lead">An independent developer working across Nostr, AI, and the smart home.
-    Open-source desktop apps, AI tools, and focused mobile apps — most of it shipped this year.
-    Here's what I'm building, with support and privacy info for each app.</p>
-  <div class="cta-row">
-    <a class="btn primary" href="#projects">See the work</a>
-    <a class="btn ghost" href="#contact">Get in touch</a>
-  </div>
-</div>
-
-<!-- ================= PROJECTS (LIVE / SHIPPED) ================= -->
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Projects</h2>
-      <p>Things I've designed, built, and shipped — open source where it counts.</p>
+  <!-- HERO -->
+  <section class="wrap hero">
+    <div class="kicker">Indie developer · Slovenia</div>
+    <h1>I build small, sharp software.</h1>
+    <p>Desktop, web, and mobile apps working across Nostr, AI, and the smart home.
+       Most of what's below shipped this year — with support and privacy info for each app.</p>
+    <div style="display:flex;gap:18px;flex-wrap:wrap">
+      <a href="#projects" class="cta primary">See the work →</a>
+      <a href="mailto:jure-publishing@agentmail.to" class="cta ghost">Get in touch</a>
     </div>
-    <div class="grid">
+  </section>
 
-      <article class="card">
-        <div class="ico">✦</div>
-        <div class="kind">Desktop · Nostr · Open source</div>
-        <h3>Vega</h3>
-        <p>The cross-platform desktop Nostr client the ecosystem deserves — built in Tauri 2.0 (Rust)
-          for Mac, Windows &amp; Linux. 70+ features: an embedded personal relay, Lightning zaps,
-          long-form writing, V4V podcasts, advanced search, and 8 themes. MIT licensed.</p>
-        <div class="foot">
-          <span class="pill live">Live · v0.13.2</span>
-          <span class="links">
-            <a href="https://veganostr.com" target="_blank" rel="noopener">Site →</a>
-            <a href="https://github.com/hoornet/vega" target="_blank" rel="noopener">GitHub</a>
-          </span>
+  <!-- FEATURED PROJECTS -->
+  <section id="projects" class="wrap">
+    <div class="sec-head">
+      <h2>Right now</h2>
+      <span>the two that need you most</span>
+    </div>
+    <div class="featured">
+
+      <article class="fcard">
+        <div class="top">
+          <div class="cat">Web · AI · Documentation</div>
+          <div class="badge">Featured</div>
         </div>
-      </article>
-
-      <article class="card">
-        <div class="ico">🤖</div>
-        <div class="kind">Web · AI · Developer tool</div>
         <h3>AgentDocs</h3>
-        <p>A collaborative documentation platform where AI agents are first-class citizens. Write in
-          Markdown, share any page with a magic link, and connect through a full REST API, webhooks,
-          and a published MCP server (<code>agentdocs-mcp</code>) so agents read and write docs directly.</p>
+        <div class="tagline">Documentation your AI agent can actually read.</div>
+        <p class="desc">Write in Markdown, share any page with a magic link, and give agents a clean
+          feed through a full REST API, an MCP server, and llms.txt — no scraping, no HTML soup.
+          Free to start, teams welcome.</p>
         <div class="foot">
-          <span class="pill live">Live · v1.1.0</span>
-          <span class="links">
-            <a href="https://agentdocs.eu" target="_blank" rel="noopener">Site →</a>
-            <a href="https://www.npmjs.com/package/agentdocs-mcp" target="_blank" rel="noopener">MCP</a>
-          </span>
+          <span class="status">Live · v1.1.0</span>
+          <div style="display:flex;gap:10px">
+            <a class="btn" href="https://agentdocs.eu" target="_blank" rel="noopener">Try it free</a>
+            <a class="btn" href="https://www.npmjs.com/package/agentdocs-mcp" target="_blank" rel="noopener">MCP server</a>
+          </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="ico">🏠</div>
-        <div class="kind">Web · Smart home · AI</div>
-        <h3>Nives</h3>
-        <p>An AI assistant for Home Assistant that actually remembers your home — preferences, devices,
-          and routines persist across every conversation. Talk by voice or text via HA Assist, and it
-          can build automations. A turn-key hosted service: paste one key, no server to run.</p>
-        <div class="foot">
-          <span class="pill live">Early access</span>
-          <span class="links"><a href="https://nives.house" target="_blank" rel="noopener">Site →</a></span>
+      <article class="fcard">
+        <div class="top">
+          <div class="cat">Web · Nostr · Patronage</div>
+          <div class="badge">Featured</div>
         </div>
-      </article>
-
-      <article class="card">
-        <div class="ico">🧠</div>
-        <div class="kind">Open source · Smart home · AI</div>
-        <h3>home-mind</h3>
-        <p>The open-source (AGPL) AI memory layer for Home Assistant that Nives grew out of. Cognitive
-          memory with semantic search, multi-LLM support (Claude, OpenAI, Ollama), and voice control via
-          HA Assist. Self-hosted and privacy-focused, installable through HACS.</p>
+        <h3>PaterNostr</h3>
+        <div class="tagline">Patronage for the writers and makers worth keeping.</div>
+        <p class="desc">A membership platform for independent creators — your Nostr identity, your
+          audience, paid directly over Lightning. No middlemen, no algorithm standing between you
+          and your readers. Early days — come read, or come get paid.</p>
         <div class="foot">
-          <span class="pill dev">Open source · 59★</span>
-          <span class="links"><a href="https://github.com/hoornet/home-mind" target="_blank" rel="noopener">GitHub →</a></span>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="ico">⚡</div>
-        <div class="kind">Infrastructure · Nostr · Go</div>
-        <h3>Vega Relay</h3>
-        <p>A high-performance Nostr relay written from scratch in Go, optimized for the Vega client and
-          shipped as its default public relay. Supports 19 NIPs including NIP-50 full-text search and
-          NIP-42 auth.</p>
-        <div class="foot">
-          <span class="pill live">Live</span>
-          <span class="links"><a href="https://relay2.veganostr.com" target="_blank" rel="noopener">Status →</a></span>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="ico">📝</div>
-        <div class="kind">Desktop · Writing · Markdown</div>
-        <h3>TypeOn</h3>
-        <p>A distraction-free Markdown editor and daily journal for Mac, Windows &amp; Linux. Zen
-          fullscreen writing, auto-organized diary entries, 7 templates, a timeline to browse your
-          writing history, and export to Markdown, PDF, DOCX &amp; EPUB. Free, with a one-time Pro upgrade.</p>
-        <div class="foot">
-          <span class="pill live">Live · v0.21.0</span>
-          <span class="links"><a href="https://typeon.eu" target="_blank" rel="noopener">Site →</a></span>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="ico">🌳</div>
-        <div class="kind">Web · Game · Narrative</div>
-        <h3>The Wake World</h3>
-        <p>A narrative adventure through the Kabbalistic Tree of Life — explore the ten Sephiroth, face
-          the Qliphoth, and ascend from Malkuth to Kether. A story-driven way for curious players (and
-          kids) to learn qabalah.</p>
-        <div class="foot">
-          <span class="pill live">Live</span>
-          <span class="links"><a href="https://the-wake-world-game.netlify.app" target="_blank" rel="noopener">Play →</a></span>
+          <span class="status">New · v0.8.5</span>
+          <div style="display:flex;gap:10px">
+            <a class="btn" href="https://paternostr.cc" target="_blank" rel="noopener">Explore creators</a>
+          </div>
         </div>
       </article>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= COMING SOON (ANDROID) ================= -->
-<section id="soon">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Coming soon</h2>
-      <p>Focused mobile apps in the pipeline — built with Flutter for Android first.</p>
+  <!-- ALL PROJECTS GRID -->
+  <section class="wrap">
+    <div class="sec-head" style="border-bottom:none;margin-bottom:0">
+      <h2>Everything else I'm building</h2>
+      <span>open source where it counts</span>
     </div>
+  </section>
+  <section class="wrap" style="margin-top:24px;padding-bottom:100px">
     <div class="grid">
 
-      <article class="card">
-        <div class="ico">🔉</div>
-        <div class="kind">Android · Wellness</div>
+      <article class="gcard">
+        <div class="top"><div class="cat">Desktop · Nostr · Open source</div><div class="num">01</div></div>
+        <h3>Vega</h3>
+        <p>The cross-platform Nostr client the ecosystem deserves. 70+ features — an embedded relay,
+           Lightning zaps, long-form writing, V4V podcasts, 8 themes — built in Tauri (Rust) for Mac,
+           Windows and Linux. MIT licensed.</p>
+        <div class="foot">
+          <span class="status mono">Live · v0.13.2</span>
+          <div class="links">
+            <a class="glink" href="https://veganostr.com" target="_blank" rel="noopener">Site →</a>
+            <a class="glink" href="https://github.com/hoornet/vega" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="top"><div class="cat">Open source · Smart home · AI</div><div class="num">02</div></div>
+        <h3>home-mind</h3>
+        <p>The AGPL memory layer that gives Home Assistant real memory: preferences, devices and
+           routines that persist across conversations. Multi-LLM, voice control via HA Assist,
+           fully self-hosted.</p>
+        <div class="foot">
+          <span class="status mono">Open source · 59★</span>
+          <div class="links">
+            <a class="glink" href="https://github.com/hoornet/home-mind" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="top"><div class="cat">Web · Smart home · AI</div><div class="num">03</div></div>
+        <h3>Nives</h3>
+        <p>An AI assistant for Home Assistant that remembers your home. Talk by voice or text, get
+           automations built for you, and skip the server — paste one key and go.</p>
+        <div class="foot">
+          <span class="status mono">Early access</span>
+          <div class="links">
+            <a class="glink" href="https://nives.house" target="_blank" rel="noopener">Site →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="top"><div class="cat">Infrastructure · Nostr · Go</div><div class="num">04</div></div>
+        <h3>Vega Relay</h3>
+        <p>A Nostr relay built from scratch in Go for speed, running as Vega's default public relay.
+           19 NIPs deep, including full-text search and NIP-42 auth.</p>
+        <div class="foot">
+          <span class="status mono">Live</span>
+          <div class="links">
+            <a class="glink" href="https://relay2.veganostr.com" target="_blank" rel="noopener">Status →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="top"><div class="cat">Desktop · Writing · Markdown</div><div class="num">05</div></div>
+        <h3>TypeOn</h3>
+        <p>A calm, distraction-free Markdown editor and daily journal. Zen fullscreen writing, an
+           auto-organized diary, seven templates, and export to Markdown, PDF, DOCX or EPUB.</p>
+        <div class="foot">
+          <span class="status mono">Live · v0.21.0</span>
+          <div class="links">
+            <a class="glink" href="https://typeon.eu" target="_blank" rel="noopener">Site →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="top"><div class="cat">Web · Game · Narrative</div><div class="num">06</div></div>
+        <h3>The Wake World</h3>
+        <p>A narrative adventure through the Kabbalistic Tree of Life — explore the ten Sephiroth,
+           face the Qliphoth, and climb from Malkuth to Kether. A playful way to learn qabalah.</p>
+        <div class="foot">
+          <span class="status mono">Live</span>
+          <div class="links">
+            <a class="glink" href="https://the-wake-world-game.netlify.app" target="_blank" rel="noopener">Play →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="top"><div class="cat">Android · Wellness</div><div class="num">07</div></div>
         <h3>Tinnitus Notch</h3>
-        <p>Personalized notched sound therapy — find your tinnitus pitch and play calming sounds with
-          that frequency gently filtered out. Sleep timer and soothing ambiences.</p>
+        <p>Find your tinnitus's exact pitch, notch it out of calming noise or real nature loops, and
+           let the rest play clean. Sleep timer included, free to start.</p>
         <div class="foot">
-          <span class="pill soon">Coming soon</span>
-          <span class="links"><a href="#support">Support &amp; privacy →</a></span>
+          <span class="status mono">Live on Google Play</span>
+          <div class="links">
+            <a class="glink" href="https://play.google.com/store/apps/details?id=com.hoornet.tinnitus_notch" target="_blank" rel="noopener">Get it on Google Play →</a>
+          </div>
         </div>
       </article>
 
-      <article class="card">
-        <div class="ico">🐶</div>
-        <div class="kind">Android · Pets</div>
+      <article class="gcard">
+        <div class="top"><div class="cat">Android · Astrology</div><div class="num">08</div></div>
+        <h3>Astro93</h3>
+        <p>A personal astrology companion: precise natal charts, daily transits and a lunar calendar,
+           computed entirely on your device — plus AI readings that remember your sky. The chart is
+           free and stays free; only the AI is paid, because it costs us too.</p>
+        <div class="foot">
+          <span class="status mono">In review · Google Play</span>
+          <div class="links">
+            <a class="glink" href="mailto:jure-publishing@agentmail.to?subject=Notify%20me%20-%20Astro93">Notify me →</a>
+            <a class="glink" href="astro93/privacy.html">Privacy →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="top"><div class="cat">Android · Pets</div><div class="num">09</div></div>
         <h3>Calm Dog</h3>
-        <p>Calming sounds for dogs during fireworks, thunderstorms, and time alone. One-tap presets for
-          the moments that matter, with a sleep timer.</p>
+        <p>One-tap calming sounds for fireworks, storms, and time alone — built to steady a nervous
+           dog, with a sleep timer for overnight.</p>
         <div class="foot">
-          <span class="pill soon">Coming soon</span>
-          <span class="links"><a href="#support">Support &amp; privacy →</a></span>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="ico">🧮</div>
-        <div class="kind">Android · Finance</div>
-        <h3>Freelance Tax Calculator <span style="font-weight:500;color:var(--muted)">(working title)</span></h3>
-        <p>A simple 1099 / self-employed tax estimator — income in, estimated federal and
-          self-employment tax out, with quarterly payment reminders. US-first.</p>
-        <div class="foot">
-          <span class="pill dev">In development</span>
-          <span class="links"><a href="#contact">Notify me →</a></span>
+          <span class="status mono">Coming soon</span>
+          <div class="links">
+            <a class="glink" href="mailto:jure-publishing@agentmail.to?subject=Notify%20me%20-%20Calm%20Dog">Notify me →</a>
+          </div>
         </div>
       </article>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about">
-  <div class="wrap about-grid about">
+  <!-- ABOUT -->
+  <section id="about" class="wrap about">
     <div>
-      <div class="sec-head"><h2>About</h2></div>
-      <p>I'm Jure Sršen, an independent developer based in Slovenia. I like building small, well-made
-        software that does one thing well — from a full desktop Nostr client to AI tools for the smart
-        home to focused mobile apps. A lot of my work is open source.</p>
-      <p>Most of what you see here shipped this year. If you've got feedback, a bug, or an idea, I'd
-        love to hear it — there's a contact link below.</p>
+      <div class="kicker" style="margin-bottom:20px">About</div>
+      <p class="lede">I'm an independent developer based in Slovenia, building small, well-made
+         software that does one thing well.</p>
+      <p>From a full desktop Nostr client to AI tools for the smart home to focused mobile apps —
+         most of it is open source, and most of what you see here shipped this year.</p>
+      <p style="margin:0">Got feedback, a bug, or an idea? I'd love to hear it.</p>
     </div>
     <div class="facts">
-      <dl>
-        <dt>Based in</dt><dd>Slovenia 🇸🇮</dd>
-        <dt>Works on</dt><dd>Desktop · Web · Mobile</dd>
-        <dt>Themes</dt><dd>Nostr · AI · Smart home</dd>
-        <dt>Code</dt><dd><a href="https://github.com/hoornet" target="_blank" rel="noopener">github.com/hoornet</a></dd>
-        <dt>Contact</dt><dd><a href="mailto:jure-publishing@agentmail.to">jure-publishing@agentmail.to</a></dd>
-      </dl>
+      <div class="fact"><div class="label">Based in</div><div>Slovenia 🇸🇮</div></div>
+      <div class="fact"><div class="label">Works on</div><div>Desktop · Web · Mobile</div></div>
+      <div class="fact"><div class="label">Themes</div><div>Nostr · AI · Smart home</div></div>
+      <div class="fact"><div class="label">Code</div><div><a href="https://github.com/hoornet" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line-bright)">github.com/hoornet</a></div></div>
+      <div class="fact"><div class="label">Contact</div><div><a href="mailto:jure-publishing@agentmail.to" style="border-bottom:1px solid var(--line-bright)">jure-publishing@agentmail.to</a></div></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= SUPPORT ================= -->
-<section id="support" class="legal">
-  <div class="wrap">
-    <div class="sec-head"><h2>Support</h2>
-      <p>Need help with one of the apps, found a bug, or want to request a feature?</p></div>
-    <div class="support-card">
-      <p style="margin-top:0">The fastest way to reach me is by email. I read every message and
-        usually reply within a couple of days.</p>
-      <p><strong>Email:</strong> <a href="mailto:jure-publishing@agentmail.to?subject=App%20support">jure-publishing@agentmail.to</a></p>
-      <p style="margin-bottom:0">When reporting a problem, it helps to include: the app name, your
-        device and OS version, and a short description of what happened.</p>
+  <!-- SUPPORT -->
+  <section id="support" class="wrap support">
+    <div class="inner">
+      <div class="kicker" style="margin-bottom:20px">Support</div>
+      <h2>Need a hand with one of the apps?</h2>
+      <p>Email is the fastest way to reach me — I read every message and usually reply within a
+         couple of days. Include the app name, your device and OS version, and a short description
+         of what happened, and I'll get back to you.</p>
+      <a href="mailto:jure-publishing@agentmail.to?subject=App%20support" class="cta primary">Email support →</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= PRIVACY ================= -->
-<section id="privacy" class="legal">
-  <div class="wrap">
-    <h2>Privacy Policy</h2>
-    <p class="updated">Last updated: 20 June 2026</p>
-    <p>This privacy policy applies to the mobile applications published by Jure Sršen
-      ("we", "us"), including <strong>Tinnitus Notch</strong> and <strong>Calm Dog</strong>
-      (the "Apps"). It explains what information the Apps handle and how.</p>
-
-    <h3>Information we collect</h3>
-    <p>The Apps are designed to work without accounts and to keep your data on your device.
-      Specifically:</p>
-    <ul>
-      <li><strong>Settings you choose</strong> (e.g., your selected tinnitus frequency, preferred
-        sounds, or timer settings) are stored locally on your device only. We do not receive them.</li>
-      <li><strong>We do not require registration</strong> and do not collect your name, email, or
-        contact details unless you choose to email us for support.</li>
-    </ul>
-
-    <h3>Purchases and subscriptions</h3>
-    <p>If you buy a subscription, the transaction is processed by <strong>Google Play Billing</strong>
-      and managed through our payments provider <strong>RevenueCat</strong>. We receive anonymized
-      purchase and subscription status (e.g., whether a subscription is active) so the App can unlock
-      paid features and restore purchases. We never receive your full payment card details.</p>
-
-    <h3>Analytics and diagnostics</h3>
-    <p>The Apps do not include third-party analytics, crash-reporting, or tracking SDKs.
-      Google Play may provide us with aggregated, anonymous statistics about installs and crashes.</p>
-
-    <h3>Sharing</h3>
-    <p>We do not sell your data. Information is shared only with the service providers named above
-      (Google Play, RevenueCat) strictly to operate the Apps, and as required by law.</p>
-
-    <h3>Children</h3>
-    <p>The Apps are not directed at children under 13, and we do not knowingly collect personal
-      information from children.</p>
-
-    <h3>Your choices</h3>
-    <p>You can clear locally stored settings by clearing the App's data or uninstalling it.
-      You can manage or cancel subscriptions anytime in your Google Play account.</p>
-
-    <h3>Medical disclaimer</h3>
-    <p>The Apps are intended for relaxation and general wellbeing. They are not medical devices and
-      do not diagnose, treat, or cure any condition. Consult a qualified professional for medical advice.</p>
-
-    <h3>Contact</h3>
-    <p>Questions about this policy? Email <a href="mailto:jure-publishing@agentmail.to">jure-publishing@agentmail.to</a>.</p>
-  </div>
-</section>
-
-<!-- ================= TERMS ================= -->
-<section id="terms" class="legal">
-  <div class="wrap">
-    <h2>Terms of Use</h2>
-    <p class="updated">Last updated: 20 June 2026</p>
-    <p>By downloading or using our Apps, you agree to these terms.</p>
-
-    <h3>License</h3>
-    <p>We grant you a personal, non-exclusive, non-transferable license to use the Apps for your own
-      non-commercial use, subject to these terms and the Google Play terms.</p>
-
-    <h3>Subscriptions</h3>
-    <p>Some features require a paid subscription. Subscriptions renew automatically until cancelled.
-      You can manage and cancel them in your Google Play account; cancellation takes effect at the end
-      of the current billing period. Free trials, if offered, convert to a paid subscription unless
-      cancelled before the trial ends.</p>
-
-    <h3>Acceptable use</h3>
-    <p>You agree not to misuse the Apps, reverse engineer them except as permitted by law, or use them
-      in any unlawful way.</p>
-
-    <h3>Disclaimer &amp; liability</h3>
-    <p>The Apps are provided "as is" without warranties of any kind. They are wellness tools, not
-      medical devices. To the maximum extent permitted by law, we are not liable for any indirect or
-      consequential damages arising from your use of the Apps.</p>
-
-    <h3>Changes</h3>
-    <p>We may update these terms from time to time. Continued use of the Apps after changes means you
-      accept the updated terms.</p>
-
-    <h3>Contact</h3>
-    <p>Questions? Email <a href="mailto:jure-publishing@agentmail.to">jure-publishing@agentmail.to</a>.</p>
-  </div>
-</section>
-
-<!-- ================= FOOTER / CONTACT ================= -->
-<footer id="contact">
-  <div class="wrap foot-row">
-    <div>
-      <div class="brand" style="margin-bottom:6px">Jure Sršen<span>.</span></div>
-      <div>Building small, useful software in Slovenia. · <a href="mailto:jure-publishing@agentmail.to">jure-publishing@agentmail.to</a></div>
-      <div style="margin-top:8px">&copy; <span id="year"></span> Jure Sršen. All rights reserved.</div>
+  <!-- FOOTER -->
+  <footer class="wrap footer">
+    <div class="row">
+      <div>
+        <div class="brand">Jure Sršen.</div>
+        <div class="sub">Building small, useful software in Slovenia.</div>
+      </div>
+      <nav>
+        <a href="https://github.com/hoornet" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://ko-fi.com/jure" target="_blank" rel="noopener">Ko-fi</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="mailto:jure-publishing@agentmail.to">Contact</a>
+      </nav>
     </div>
-    <div class="foot-links">
-      <a href="https://github.com/hoornet" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://ko-fi.com/jure" target="_blank" rel="noopener">Ko-fi</a>
-      <a href="#support">Support</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#terms">Terms</a>
-    </div>
-  </div>
-</footer>
+    <div class="legal">© 2026 Jure Sršen. All rights reserved.</div>
+  </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 </body>
 </html>

@@ -21,13 +21,14 @@
 <body>
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="date">Astro93 · Last updated 4 July 2026</p>
+    <p class="date">Astro93 · Last updated 7 July 2026</p>
 
     <p><strong>The short version:</strong> Astro93 keeps your birth details
-      <em>on your device</em> and never sends them to us — we run no server and there is
-      no account. A few features send only what's needed to a third party to do their job:
-      turning a place name into coordinates, generating your PRO readings, and managing
-      subscriptions. There are no ads, no analytics, and no trackers.</p>
+      <em>on your device</em> — there is no account and nothing to sign up for. A few
+      features send only what's needed to do their job: turning a place name into
+      coordinates, generating your PRO readings (via our EU-hosted proxy, which stores no
+      reading content), and managing subscriptions. There are no ads, no analytics, and
+      no trackers.</p>
 
     <p>This policy explains how the Astro93 mobile app ("the app", "we") handles
       information. The app is provided by <strong>Jure Sršen</strong> (the "data
@@ -50,12 +51,14 @@
       <li><strong>OpenStreetMap / Nominatim</strong> — when you search for a birthplace,
         the text you type is sent to look up coordinates. See the OpenStreetMap Foundation
         privacy policy.</li>
-      <li><strong>OpenRouter</strong> (PRO readings only) — to generate a briefing or
-        interpretation, the app sends the relevant chart data (positions and aspects
+      <li><strong>AI readings</strong> (PRO readings only) — to generate a briefing or
+        interpretation, the app sends the derived chart data (planet positions and aspects
         computed from your birth details), the day's transits, and the profile's preferred
-        name to OpenRouter, which routes it to a language-model provider to produce the
-        text. Sent over HTTPS; not used to build a profile of you. See OpenRouter's privacy
-        policy.</li>
+        name to our proxy server (hosted on Supabase, EU region), which forwards them to a
+        language-model provider via OpenRouter to produce the text. Sent over HTTPS; not
+        used to build a profile of you. We do not store the content of these requests; our
+        server keeps only an anonymous purchase identifier and daily request counts to
+        enforce plan limits and prevent abuse. See OpenRouter's privacy policy.</li>
       <li><strong>RevenueCat</strong> — for subscriptions and the one-time purchase,
         RevenueCat receives a randomly generated, anonymous app-user identifier, your
         purchase/entitlement status, and basic device and platform information. It does
@@ -63,12 +66,6 @@
         See <a href="https://www.revenuecat.com/privacy/">RevenueCat's privacy policy</a>.</li>
       <li><strong>Google Play Billing</strong> — Google processes any payment; we never
         see or store your payment details.</li>
-      <li><strong>AI readings</strong> - when you request an AI reading, the derived chart data
-        (planet positions and aspects computed from your birth details), the day's transits,
-        and the profile's preferred name are sent to our proxy server (hosted on Supabase,
-        EU region), which forwards them to the AI provider via OpenRouter. We do not store the
-        content of these requests; our server keeps only an anonymous purchase identifier and
-        daily request counts to enforce plan limits and prevent abuse.</li>
     </ul>
 
     <h2>What we do not do</h2>
