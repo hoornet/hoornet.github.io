@@ -4,23 +4,41 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Calm Dog</title>
+<meta name="description" content="Calm Dog — gentle looping sounds to help your dog or cat settle during fireworks, storms, or time alone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;1,400&family=Fragment+Mono&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#1A1611;--text:#E6E1D6;--muted:#A39B8C;--green:#A5D46A;--line:#322B22;}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--text);
-    font:16px/1.6 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:56px 20px}
-  .wrap{max-width:720px;margin:0 auto}
-  h1{color:var(--green);font-size:44px;margin:14px 0 6px;letter-spacing:.3px}
-  .lead{font-size:19px;color:#F3EFE6;margin:0 0 26px}
-  a{color:var(--green);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .links a{display:inline-block;margin-right:22px;font-weight:600}
-  .logo{width:52px;height:52px;color:var(--green)}
-  .foot{margin-top:40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:18px}
+  :root{
+    --bg:#0b0b0c; --surface:#141417;
+    --line:rgba(255,255,255,0.09);
+    --ink:#f3f1ea; --ink-dim:#9a978f; --accent:#A5D46A;
+    --font-display:'Source Serif 4',serif;
+    --font-mono:'Fragment Mono',monospace;
+    --font-body:'Public Sans',sans-serif;
+    color-scheme:dark;
+  }
+  html{background:var(--bg)}
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);
+    color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;line-height:1.6}
+  ::selection{background:var(--accent);color:var(--bg)}
+  a{text-decoration:none;color:inherit}
+  .card{max-width:620px;margin:0 auto;padding:64px 24px;text-align:center}
+  .logo{width:56px;height:56px;color:var(--accent)}
+  h1{font-family:var(--font-display);font-weight:400;font-size:44px;margin:18px 0 8px}
+  .tagline{font-size:17px;color:var(--ink);margin:0 0 14px}
+  p{font-size:15.5px;line-height:1.75;color:var(--ink-dim);margin:0 0 14px}
+  .links{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .links a{font-family:var(--font-mono);font-size:13px;color:var(--ink);border:1px solid var(--line);
+    padding:10px 18px;border-radius:999px}
+  .links a:hover{border-color:var(--accent);color:var(--accent)}
+  .note{margin-top:32px;font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+  .note a{color:var(--accent)}
+  @media (max-width:640px){h1{font-size:34px}.card{padding:48px 20px}}
 </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="card">
     <svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <circle cx="9.2" cy="6" r="2.05" />
       <circle cx="14.8" cy="6" r="2.05" />
@@ -29,14 +47,17 @@
       <path d="M12 20.6c-4-3-6.5-5.3-6.5-7.6 0-1.9 1.5-3.1 3.2-3.1 1.4 0 2.7.9 3.3 2 .6-1.1 1.9-2 3.3-2 1.7 0 3.2 1.2 3.2 3.1 0 2.3-2.5 4.6-6.5 7.6z" />
     </svg>
     <h1>Calm Dog</h1>
-    <p class="lead">Gentle, looping sounds to help your dog or cat feel more at ease when the
-      world gets loud — fireworks, storms, or an empty house. One tap, no setup, and it keeps
-      playing in the background.</p>
-    <p class="links">
+    <p class="tagline">Gentle sounds for the hard moments.</p>
+    <p>Soft, looping sounds to help your dog or cat feel more at ease when the world gets loud —
+      fireworks outside, a storm overhead, or an empty house. One tap, nothing to set up, and it
+      keeps playing in the background. A comfort tool, not a veterinary product.</p>
+    <div class="links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Use</a>
-    </p>
-    <div class="foot">Contact: <a href="mailto:astartis-support@agentmail.to">astartis-support@agentmail.to</a></div>
+    </div>
+    <p class="note">Coming soon to Google Play · Contact:
+      <a href="mailto:astartis-support@agentmail.to">astartis-support@agentmail.to</a>
+      · <a href="../index.html">More by Jure Sršen</a></p>
   </div>
 </body>
 </html>

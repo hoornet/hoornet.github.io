@@ -26,11 +26,16 @@
   SINGLE-FILE SITE — no build step. Edit text directly in the HTML below.
   • CONTACT: search astartis-support@agentmail.to to change it.
   • PROJECTS: featured cards live in #projects; the numbered grid below it.
-  • LEGAL PAGES:
-      privacy.html / terms.html            — Tinnitus Notch + Calm Dog (root)
-      tinnitus-notch/privacy|terms.html    — copies of the root pages
-      astro93/privacy.html + terms.html    — Astro93, maintained BY HAND and
-        referenced by its Google Play listing: NEVER move or overwrite these.
+  • LEGAL PAGES — every app owns its own, referenced by its Play listing.
+      NEVER move or overwrite any of them:
+      privacy.html / terms.html            — INDEX pages only; they just link to
+        the per-app pages below. Keep app-specific text OUT of them.
+      astro93/privacy|terms.html           — Astro93
+      calm-dog/privacy|terms.html          — Calm Dog
+      tinnitus-notch/privacy|terms.html    — Tinnitus Notch, served by the
+        SEPARATE `hoornet/tinnitus-notch` repo, which shadows this one on that
+        path. Editing a tinnitus-notch/ folder here would change nothing; edit
+        that repo instead. (Check with: gh api repos/OWNER/REPO/pages)
   • The legacy Google Play privacy URL https://DOMAIN/#privacy is preserved by
     the hash-redirect script in this <head> — keep it until the Tinnitus Notch
     Play listing is updated to point at /privacy.html directly.
@@ -184,43 +189,44 @@
   <section id="projects" class="wrap">
     <div class="sec-head">
       <h2>Right now</h2>
-      <span>the two that need you most</span>
+      <span>both live on Google Play</span>
     </div>
     <div class="featured">
 
       <article class="fcard">
         <div class="top">
-          <div class="cat">Web · AI · Documentation</div>
+          <div class="cat">Android · Wellness</div>
           <div class="badge">Featured</div>
         </div>
-        <h3>AgentDocs</h3>
-        <div class="tagline">Documentation your AI agent can actually read.</div>
-        <p class="desc">Write in Markdown, share any page with a magic link, and give agents a clean
-          feed through a full REST API, an MCP server, and llms.txt — no scraping, no HTML soup.
-          Free to start, teams welcome.</p>
+        <h3>Tinnitus Notch</h3>
+        <div class="tagline">Calming sound with the ringing notched out of it.</div>
+        <p class="desc">Find your tinnitus's exact pitch, and the app removes that one narrow band
+          from calming noise or real nature loops — so what's left is smooth, personal, and easier to
+          rest inside. Sleep timer included, free to start.</p>
         <div class="foot">
-          <span class="status">Live · v1.1.0</span>
+          <span class="status">Live on Google Play</span>
           <div style="display:flex;gap:10px">
-            <a class="btn" href="https://agentdocs.eu" target="_blank" rel="noopener">Try it free</a>
-            <a class="btn" href="https://www.npmjs.com/package/agentdocs-mcp" target="_blank" rel="noopener">MCP server</a>
+            <a class="btn" href="https://play.google.com/store/apps/details?id=com.hoornet.tinnitus_notch" target="_blank" rel="noopener">Get it on Google Play</a>
+            <a class="btn" href="tinnitus-notch/">App page</a>
           </div>
         </div>
       </article>
 
       <article class="fcard">
         <div class="top">
-          <div class="cat">Web · Nostr · Patronage</div>
+          <div class="cat">Android · Astrology</div>
           <div class="badge">Featured</div>
         </div>
-        <h3>PaterNostr</h3>
-        <div class="tagline">Patronage for the writers and makers worth keeping.</div>
-        <p class="desc">A membership platform for independent creators — your Nostr identity, your
-          audience, paid directly over Lightning. No middlemen, no algorithm standing between you
-          and your readers. Early days — come read, or come get paid.</p>
+        <h3>Astro93</h3>
+        <div class="tagline">A personal astrology companion that works offline.</div>
+        <p class="desc">Precise natal charts, daily transits and a lunar calendar, computed entirely
+          on your device — plus AI readings that remember your sky. The chart is free and stays free;
+          only the AI is paid, because it costs us too.</p>
         <div class="foot">
-          <span class="status">New · v0.8.5</span>
+          <span class="status">Live on Google Play</span>
           <div style="display:flex;gap:10px">
-            <a class="btn" href="https://paternostr.cc" target="_blank" rel="noopener">Explore creators</a>
+            <a class="btn" href="https://play.google.com/store/apps/details?id=com.hoornet.astro93" target="_blank" rel="noopener">Get it on Google Play</a>
+            <a class="btn" href="astro93/">App page</a>
           </div>
         </div>
       </article>
@@ -320,29 +326,30 @@
       </article>
 
       <article class="gcard">
-        <div class="top"><div class="cat">Android · Wellness</div><div class="num">07</div></div>
-        <h3>Tinnitus Notch</h3>
-        <p>Find your tinnitus's exact pitch, notch it out of calming noise or real nature loops, and
-           let the rest play clean. Sleep timer included, free to start.</p>
+        <div class="top"><div class="cat">Web · AI · Documentation</div><div class="num">07</div></div>
+        <h3>AgentDocs</h3>
+        <p>Documentation your AI agent can actually read. Write in Markdown, share any page with a
+           magic link, and give agents a clean feed through a full REST API, an MCP server, and
+           llms.txt — no scraping, no HTML soup.</p>
         <div class="foot">
-          <span class="status mono">Live on Google Play</span>
+          <span class="status mono">Live · v1.1.0</span>
           <div class="links">
-            <a class="glink" href="https://play.google.com/store/apps/details?id=com.hoornet.tinnitus_notch" target="_blank" rel="noopener">Get it on Google Play →</a>
+            <a class="glink" href="https://agentdocs.eu" target="_blank" rel="noopener">Try it free →</a>
+            <a class="glink" href="https://www.npmjs.com/package/agentdocs-mcp" target="_blank" rel="noopener">MCP server →</a>
           </div>
         </div>
       </article>
 
       <article class="gcard">
-        <div class="top"><div class="cat">Android · Astrology</div><div class="num">08</div></div>
-        <h3>Astro93</h3>
-        <p>A personal astrology companion: precise natal charts, daily transits and a lunar calendar,
-           computed entirely on your device — plus AI readings that remember your sky. The chart is
-           free and stays free; only the AI is paid, because it costs us too.</p>
+        <div class="top"><div class="cat">Web · Nostr · Patronage</div><div class="num">08</div></div>
+        <h3>PaterNostr</h3>
+        <p>Patronage for the writers and makers worth keeping — your Nostr identity, your audience,
+           paid directly over Lightning. No middlemen, no algorithm standing between you and your
+           readers.</p>
         <div class="foot">
-          <span class="status mono">Live on Google Play</span>
+          <span class="status mono">New · v0.8.5</span>
           <div class="links">
-            <a class="glink" href="https://play.google.com/store/apps/details?id=com.hoornet.astro93" target="_blank" rel="noopener">Get it on Google Play →</a>
-            <a class="glink" href="astro93/privacy.html">Privacy →</a>
+            <a class="glink" href="https://paternostr.cc" target="_blank" rel="noopener">Explore creators →</a>
           </div>
         </div>
       </article>
@@ -355,6 +362,7 @@
         <div class="foot">
           <span class="status mono">Coming soon</span>
           <div class="links">
+            <a class="glink" href="calm-dog/">App page →</a>
             <a class="glink" href="mailto:astartis-support@agentmail.to?subject=Notify%20me%20-%20Calm%20Dog">Notify me →</a>
           </div>
         </div>
