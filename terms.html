@@ -3,12 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Terms of Use — Jure Sršen</title>
-<meta name="description" content="Terms of use for mobile applications published by Jure Sršen, including Tinnitus Notch and Calm Dog.">
+<title>Terms — Jure Sršen</title>
+<meta name="description" content="Where to find the terms of use for each app published by Jure Sršen: Tinnitus Notch, Astro93, and Calm Dog.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%230b0b0c'/%3E%3Ctext x='100' y='122' font-family='Georgia, serif' font-style='italic' font-size='88' fill='%23ff5a1f' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
-<!-- NOTE: these terms cover Tinnitus Notch and Calm Dog. Astro93 has its own
-     terms at /astro93/terms.html (never move them). A copy of this page is
-     served at /tinnitus-notch/terms.html; keep both in sync when editing. -->
+<!-- NOTE: every app now has its own dedicated terms of use, each referenced by
+     that app's Google Play listing — never move them:
+       /tinnitus-notch/terms.html  (served by the separate `tinnitus-notch` repo,
+                                    which shadows this repo on that path)
+       /astro93/terms.html
+       /calm-dog/terms.html
+     This page is only an index pointing at them, so there is no app terms text
+     here to fall out of sync. Do not reintroduce app-specific terms here. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;1,400&family=Fragment+Mono&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -37,10 +42,19 @@
   .intro{font-size:16px;line-height:1.75;color:var(--ink-dim);margin:0 0 40px}
   section{border-top:1px solid var(--line);padding-top:32px;margin-bottom:40px}
   h2{font-family:var(--font-display);font-weight:400;font-size:26px;margin:0 0 16px}
-  p{font-size:15.5px;line-height:1.75;color:var(--ink-dim);margin:0 0 14px}
-  p:last-child{margin-bottom:0}
+  p,li{font-size:15.5px;line-height:1.75;color:var(--ink-dim)}
+  p{margin:0 0 14px} p:last-child{margin-bottom:0}
+  ul{margin:0;padding-left:20px}
   strong{color:var(--ink)}
   a.inline{color:var(--accent);border-bottom:1px solid var(--accent)}
+  .apps{list-style:none;padding:0;margin:0}
+  .apps li{border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:12px;background:var(--surface)}
+  .apps .name{font-family:var(--font-display);font-size:20px;color:var(--ink);display:block;margin-bottom:4px}
+  .apps .desc{display:block;margin-bottom:10px}
+  .apps .links{font-family:var(--font-mono);font-size:13px}
+  .apps .links a{color:var(--accent)}
+  .apps .links a:hover{border-bottom:1px solid var(--accent)}
+  .apps .links .sep{color:var(--ink-dim);margin:0 8px}
   .foot{border-top:1px solid var(--line);padding:36px 48px;max-width:760px;margin:0 auto;
     font-family:var(--font-mono);font-size:12px;color:var(--ink-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   .foot a:hover{color:var(--accent)}
@@ -56,57 +70,62 @@
 
   <main>
     <div class="kicker">Legal</div>
-    <h1>Terms of Use</h1>
-    <p class="updated">Last updated: 20 June 2026</p>
+    <h1>Terms</h1>
+    <p class="updated">Last updated: 16 August 2026</p>
 
-    <p class="intro">By downloading or using our Apps, you agree to these terms. These terms cover
-      the mobile applications published by Jure Sršen, including <strong>Tinnitus Notch</strong>
-      and <strong>Calm Dog</strong>. <strong>Astro93</strong> has its own dedicated
-      <a class="inline" href="astro93/terms.html">terms of use</a>.</p>
+    <p class="intro">Each app published by Jure Sršen has its own terms of use, covering that app's
+      own features, subscriptions, and disclaimers. Pick the one you're looking for below.</p>
 
     <section>
-      <h2>License</h2>
-      <p>We grant you a personal, non-exclusive, non-transferable license to use the Apps for your
-        own non-commercial use, subject to these terms and the Google Play terms.</p>
+      <h2>App terms of use</h2>
+      <ul class="apps">
+        <li>
+          <span class="name">Tinnitus Notch</span>
+          <span class="desc">Soothing sounds with your tinnitus frequency notched out.</span>
+          <span class="links">
+            <a href="tinnitus-notch/terms.html">Terms of Use</a>
+            <span class="sep">·</span>
+            <a href="tinnitus-notch/privacy.html">Privacy Policy</a>
+          </span>
+        </li>
+        <li>
+          <span class="name">Astro93</span>
+          <span class="desc">A personal astrology companion — natal charts, transits, daily readings.</span>
+          <span class="links">
+            <a href="astro93/terms.html">Terms of Use</a>
+            <span class="sep">·</span>
+            <a href="astro93/privacy.html">Privacy Policy</a>
+          </span>
+        </li>
+        <li>
+          <span class="name">Calm Dog</span>
+          <span class="desc">Gentle looping sounds to help a pet settle during fireworks, storms, or time alone.</span>
+          <span class="links">
+            <a href="calm-dog/terms.html">Terms of Use</a>
+            <span class="sep">·</span>
+            <a href="calm-dog/privacy.html">Privacy Policy</a>
+          </span>
+        </li>
+      </ul>
     </section>
 
     <section>
-      <h2>Subscriptions</h2>
-      <p>Some features require a paid subscription. Subscriptions renew automatically until
-        cancelled. You can manage and cancel them in your Google Play account; cancellation takes
-        effect at the end of the current billing period. Free trials, if offered, convert to a paid
-        subscription unless cancelled before the trial ends.</p>
-    </section>
-
-    <section>
-      <h2>Acceptable use</h2>
-      <p>You agree not to misuse the Apps, reverse engineer them except as permitted by law, or use
-        them in any unlawful way.</p>
-    </section>
-
-    <section>
-      <h2>Disclaimer &amp; liability</h2>
-      <p>The Apps are provided "as is" without warranties of any kind. They are wellness tools, not
-        medical devices. To the maximum extent permitted by law, we are not liable for any indirect
-        or consequential damages arising from your use of the Apps.</p>
-    </section>
-
-    <section>
-      <h2>Changes</h2>
-      <p>We may update these terms from time to time. Continued use of the Apps after changes means
-        you accept the updated terms.</p>
+      <h2>This website</h2>
+      <p>These pages are a personal portfolio, provided as is and for information only. The content
+        is © 2026 Jure Sršen. Anything you install from an app store is governed by that app's own
+        terms, linked above, together with the store's terms.</p>
     </section>
 
     <section style="margin-bottom:0">
       <h2>Contact</h2>
-      <p>Questions? Email
+      <p>Questions about any of the above? Email
         <a class="inline" href="mailto:astartis-support@agentmail.to">astartis-support@agentmail.to</a>.</p>
     </section>
   </main>
 
   <div class="foot">
     <span>© 2026 Jure Sršen.</span>
-    <a href="privacy.html">Privacy Policy →</a>
+    <a href="privacy.html">Privacy →</a>
   </div>
 
 </body>

@@ -3,13 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy — Jure Sršen</title>
-<meta name="description" content="Privacy policy for mobile applications published by Jure Sršen, including Tinnitus Notch and Calm Dog.">
+<title>Privacy — Jure Sršen</title>
+<meta name="description" content="Where to find the privacy policy for each app published by Jure Sršen: Tinnitus Notch, Astro93, and Calm Dog.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%230b0b0c'/%3E%3Ctext x='100' y='122' font-family='Georgia, serif' font-style='italic' font-size='88' fill='%23ff5a1f' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
-<!-- NOTE: this policy covers Tinnitus Notch and Calm Dog. Astro93 has its own
-     dedicated policy at /astro93/privacy.html (referenced by its Google Play
-     listing — never move it). A copy of this page is served at
-     /tinnitus-notch/privacy.html; keep both in sync when editing. -->
+<!-- NOTE: every app now has its own dedicated privacy policy, each referenced by
+     that app's Google Play listing — never move them:
+       /tinnitus-notch/privacy.html  (served by the separate `tinnitus-notch` repo,
+                                      which shadows this repo on that path)
+       /astro93/privacy.html
+       /calm-dog/privacy.html
+     This page is only an index pointing at them, so there is no app policy text
+     here to fall out of sync. Do not reintroduce app-specific terms here. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;1,400&family=Fragment+Mono&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -43,6 +47,14 @@
   ul{margin:0;padding-left:20px}
   strong{color:var(--ink)}
   a.inline{color:var(--accent);border-bottom:1px solid var(--accent)}
+  .apps{list-style:none;padding:0;margin:0}
+  .apps li{border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:12px;background:var(--surface)}
+  .apps .name{font-family:var(--font-display);font-size:20px;color:var(--ink);display:block;margin-bottom:4px}
+  .apps .desc{display:block;margin-bottom:10px}
+  .apps .links{font-family:var(--font-mono);font-size:13px}
+  .apps .links a{color:var(--accent)}
+  .apps .links a:hover{border-bottom:1px solid var(--accent)}
+  .apps .links .sep{color:var(--ink-dim);margin:0 8px}
   .foot{border-top:1px solid var(--line);padding:36px 48px;max-width:760px;margin:0 auto;
     font-family:var(--font-mono);font-size:12px;color:var(--ink-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   .foot a:hover{color:var(--accent)}
@@ -58,75 +70,64 @@
 
   <main>
     <div class="kicker">Legal</div>
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 20 June 2026</p>
+    <h1>Privacy</h1>
+    <p class="updated">Last updated: 16 August 2026</p>
 
-    <p class="intro">This privacy policy applies to the mobile applications published by Jure Sršen
-      ("we", "us"), including <strong>Tinnitus Notch</strong> and <strong>Calm Dog</strong>
-      (the "Apps"). It explains what information the Apps handle and how.
-      <strong>Astro93</strong> has its own dedicated
-      <a class="inline" href="astro93/privacy.html">privacy policy</a>.</p>
+    <p class="intro">Each app published by Jure Sršen has its own privacy policy, written for what
+      that app actually does. Pick the one you're looking for below.</p>
 
     <section>
-      <h2>Information we collect</h2>
-      <p>The Apps are designed to work without accounts and to keep your data on your device. Specifically:</p>
-      <ul>
-        <li style="margin-bottom:8px"><strong>Settings you choose</strong> (e.g., your selected tinnitus
-          frequency, preferred sounds, or timer settings) are stored locally on your device only.
-          We do not receive them.</li>
-        <li><strong>We do not require registration</strong> and do not collect your name, email, or
-          contact details unless you choose to email us for support.</li>
+      <h2>App privacy policies</h2>
+      <ul class="apps">
+        <li>
+          <span class="name">Tinnitus Notch</span>
+          <span class="desc">Soothing sounds with your tinnitus frequency notched out.</span>
+          <span class="links">
+            <a href="tinnitus-notch/privacy.html">Privacy Policy</a>
+            <span class="sep">·</span>
+            <a href="tinnitus-notch/terms.html">Terms of Use</a>
+          </span>
+        </li>
+        <li>
+          <span class="name">Astro93</span>
+          <span class="desc">A personal astrology companion — natal charts, transits, daily readings.</span>
+          <span class="links">
+            <a href="astro93/privacy.html">Privacy Policy</a>
+            <span class="sep">·</span>
+            <a href="astro93/terms.html">Terms of Use</a>
+          </span>
+        </li>
+        <li>
+          <span class="name">Calm Dog</span>
+          <span class="desc">Gentle looping sounds to help a pet settle during fireworks, storms, or time alone.</span>
+          <span class="links">
+            <a href="calm-dog/privacy.html">Privacy Policy</a>
+            <span class="sep">·</span>
+            <a href="calm-dog/terms.html">Terms of Use</a>
+          </span>
+        </li>
       </ul>
     </section>
 
     <section>
-      <h2>Purchases and subscriptions</h2>
-      <p>If you buy a subscription, the transaction is processed by <strong>Google Play Billing</strong>
-        and managed through our payments provider <strong>RevenueCat</strong>. We receive anonymized
-        purchase and subscription status (e.g., whether a subscription is active) so the App can
-        unlock paid features and restore purchases. We never receive your full payment card details.</p>
-    </section>
-
-    <section>
-      <h2>Analytics and diagnostics</h2>
-      <p>The Apps do not include third-party analytics, crash-reporting, or tracking SDKs.
-        Google Play may provide us with aggregated, anonymous statistics about installs and crashes.</p>
-    </section>
-
-    <section>
-      <h2>Sharing</h2>
-      <p>We do not sell your data. Information is shared only with the service providers named above
-        (Google Play, RevenueCat) strictly to operate the Apps, and as required by law.</p>
-    </section>
-
-    <section>
-      <h2>Children</h2>
-      <p>The Apps are not directed at children under 13, and we do not knowingly collect personal
-        information from children.</p>
-    </section>
-
-    <section>
-      <h2>Your choices</h2>
-      <p>You can clear locally stored settings by clearing the App's data or uninstalling it.
-        You can manage or cancel subscriptions anytime in your Google Play account.</p>
-    </section>
-
-    <section>
-      <h2>Medical disclaimer</h2>
-      <p>The Apps are intended for relaxation and general wellbeing. They are not medical devices and
-        do not diagnose, treat, or cure any condition. Consult a qualified professional for medical advice.</p>
+      <h2>This website</h2>
+      <p>This site is a set of static pages hosted on GitHub Pages. It sets no cookies, runs no
+        analytics, and asks for nothing about you. Web fonts are loaded from Google Fonts, which
+        receives the request as part of serving them. GitHub may keep standard server logs for
+        security and reliability — see the
+        <a class="inline" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
     </section>
 
     <section style="margin-bottom:0">
       <h2>Contact</h2>
-      <p>Questions about this policy? Email
+      <p>Questions about any of the above? Email
         <a class="inline" href="mailto:astartis-support@agentmail.to">astartis-support@agentmail.to</a>.</p>
     </section>
   </main>
 
   <div class="foot">
     <span>© 2026 Jure Sršen.</span>
-    <a href="terms.html">Terms of Use →</a>
+    <a href="terms.html">Terms →</a>
   </div>
 
 </body>
