@@ -160,8 +160,11 @@
     .about{grid-template-columns:1fr;gap:40px}
   }
 </style>
+<link rel="stylesheet" href="assets/refresh.css">
 </head>
 <body id="top">
+
+  <a class="skip-link" href="#projects">Skip to projects</a>
 
   <!-- NAV -->
   <header class="nav">
@@ -176,10 +179,10 @@
   <!-- HERO -->
   <section class="wrap hero">
     <div class="kicker">Indie developer · Slovenia</div>
-    <h1>I build small, sharp software.</h1>
+    <h1>I build small, <em>sharp</em> software.</h1>
     <p>Desktop, web, and mobile apps working across Nostr, AI, and the smart home.
        Most of what's below shipped this year — with support and privacy info for each app.</p>
-    <div style="display:flex;gap:18px;flex-wrap:wrap">
+    <div class="hero-actions">
       <a href="#projects" class="cta primary">See the work →</a>
       <a href="mailto:astartis-support@agentmail.to" class="cta ghost">Get in touch</a>
     </div>
@@ -205,9 +208,10 @@
           rest inside. Sleep timer included, free to start.</p>
         <div class="foot">
           <span class="status">Live on Google Play</span>
-          <div style="display:flex;gap:10px">
-            <a class="btn" href="https://play.google.com/store/apps/details?id=com.hoornet.tinnitus_notch" target="_blank" rel="noopener">Get it on Google Play</a>
-            <a class="btn" href="tinnitus-notch/">App page</a>
+          <div class="card-actions">
+            <div class="button-row"><a class="btn" href="https://play.google.com/store/apps/details?id=com.hoornet.tinnitus_notch" target="_blank" rel="noopener">Get it on Google Play</a>
+            <a class="btn" href="tinnitus-notch/">App page</a></div>
+            <div class="legal-links"><a href="tinnitus-notch/privacy.html">Privacy</a><a href="tinnitus-notch/terms.html">Terms</a></div>
           </div>
         </div>
       </article>
@@ -224,9 +228,10 @@
           only the AI is paid, because it costs us too.</p>
         <div class="foot">
           <span class="status">Live on Google Play</span>
-          <div style="display:flex;gap:10px">
-            <a class="btn" href="https://play.google.com/store/apps/details?id=com.hoornet.astro93" target="_blank" rel="noopener">Get it on Google Play</a>
-            <a class="btn" href="astro93/">App page</a>
+          <div class="card-actions">
+            <div class="button-row"><a class="btn" href="https://play.google.com/store/apps/details?id=com.hoornet.astro93" target="_blank" rel="noopener">Get it on Google Play</a>
+            <a class="btn" href="astro93/">App page</a></div>
+            <div class="legal-links"><a href="astro93/privacy.html">Privacy</a><a href="astro93/terms.html">Terms</a></div>
           </div>
         </div>
       </article>
@@ -245,13 +250,27 @@
     <div class="grid">
 
       <article class="gcard">
-        <div class="top"><div class="cat">Desktop · Nostr · Open source</div><div class="num">01</div></div>
+        <div class="top"><div class="cat">Web · Education · Slovenia</div><div class="num">01</div></div>
+        <h3>CPPrednost</h3>
+        <p>A Slovenian study companion for the category B driving theory test. Learn with animated
+           explanations, practise questions that adapt to your knowledge, and take a simulation built
+           like the official exam — with the legal basis shown for every answer.</p>
+        <div class="foot">
+          <span class="status mono">New · Live</span>
+          <div class="links">
+            <a class="glink" href="https://cpprednost.si" target="_blank" rel="noopener">Start practising →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="top"><div class="cat">Desktop · Nostr · Open source</div><div class="num">02</div></div>
         <h3>Vega</h3>
         <p>The cross-platform Nostr client the ecosystem deserves. 70+ features — an embedded relay,
            Lightning zaps, long-form writing, V4V podcasts, 8 themes — built in Tauri (Rust) for Mac,
            Windows and Linux. MIT licensed.</p>
         <div class="foot">
-          <span class="status mono">Live · v0.13.2</span>
+          <span class="status mono">Open source · 10★</span>
           <div class="links">
             <a class="glink" href="https://veganostr.com" target="_blank" rel="noopener">Site →</a>
             <a class="glink" href="https://github.com/hoornet/vega" target="_blank" rel="noopener">GitHub →</a>
@@ -260,13 +279,13 @@
       </article>
 
       <article class="gcard">
-        <div class="top"><div class="cat">Open source · Smart home · AI</div><div class="num">02</div></div>
+        <div class="top"><div class="cat">Open source · Smart home · AI</div><div class="num">03</div></div>
         <h3>home-mind</h3>
         <p>The AGPL memory layer that gives Home Assistant real memory: preferences, devices and
            routines that persist across conversations. Multi-LLM, voice control via HA Assist,
            fully self-hosted.</p>
         <div class="foot">
-          <span class="status mono">Open source · 59★</span>
+          <span class="status mono">Open source · 95★</span>
           <div class="links">
             <a class="glink" href="https://github.com/hoornet/home-mind" target="_blank" rel="noopener">GitHub →</a>
           </div>
@@ -274,20 +293,34 @@
       </article>
 
       <article class="gcard">
-        <div class="top"><div class="cat">Web · Smart home · AI</div><div class="num">03</div></div>
+        <div class="top"><div class="cat">Home Assistant · Smart home · AI</div><div class="num">04</div></div>
         <h3>Nives</h3>
-        <p>An AI assistant for Home Assistant that remembers your home. Talk by voice or text, get
-           automations built for you, and skip the server — paste one key and go.</p>
+        <p>An AI assistant for Home Assistant that remembers your home. Talk by voice or text,
+           create automations in plain language, and keep its memory on your own machine.</p>
         <div class="foot">
-          <span class="status mono">Early access</span>
+          <span class="status mono">Open source · 14★</span>
           <div class="links">
             <a class="glink" href="https://nives.house" target="_blank" rel="noopener">Site →</a>
+            <a class="glink" href="https://github.com/hoornet/nives" target="_blank" rel="noopener">GitHub →</a>
           </div>
         </div>
       </article>
 
       <article class="gcard">
-        <div class="top"><div class="cat">Infrastructure · Nostr · Go</div><div class="num">04</div></div>
+        <div class="top"><div class="cat">Linux · Omarchy · Smart home</div><div class="num">05</div></div>
+        <h3>Nives on Omarchy</h3>
+        <p>A pure-QML chat overlay for talking to Home Assistant from your Omarchy desktop. Open it
+           from the bar or a keybinding, type or speak naturally, and use any Assist conversation agent.</p>
+        <div class="foot">
+          <span class="status mono">Open source · New</span>
+          <div class="links">
+            <a class="glink" href="https://github.com/hoornet/nives-omarchy" target="_blank" rel="noopener">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="top"><div class="cat">Infrastructure · Nostr · Go</div><div class="num">06</div></div>
         <h3>Vega Relay</h3>
         <p>A Nostr relay built from scratch in Go for speed, running as Vega's default public relay.
            19 NIPs deep, including full-text search and NIP-42 auth.</p>
@@ -300,7 +333,7 @@
       </article>
 
       <article class="gcard">
-        <div class="top"><div class="cat">Desktop · Writing · Markdown</div><div class="num">05</div></div>
+        <div class="top"><div class="cat">Desktop · Writing · Markdown</div><div class="num">07</div></div>
         <h3>TypeOn</h3>
         <p>A calm, distraction-free Markdown editor and daily journal. Zen fullscreen writing, an
            auto-organized diary, seven templates, and export to Markdown, PDF, DOCX or EPUB.</p>
@@ -313,7 +346,7 @@
       </article>
 
       <article class="gcard">
-        <div class="top"><div class="cat">Web · Game · Narrative</div><div class="num">06</div></div>
+        <div class="top"><div class="cat">Web · Game · Narrative</div><div class="num">08</div></div>
         <h3>The Wake World</h3>
         <p>A narrative adventure through the Kabbalistic Tree of Life — explore the ten Sephiroth,
            face the Qliphoth, and climb from Malkuth to Kether. A playful way to learn qabalah.</p>
@@ -326,7 +359,7 @@
       </article>
 
       <article class="gcard">
-        <div class="top"><div class="cat">Web · AI · Documentation</div><div class="num">07</div></div>
+        <div class="top"><div class="cat">Web · AI · Documentation</div><div class="num">09</div></div>
         <h3>AgentDocs</h3>
         <p>Documentation your AI agent can actually read. Write in Markdown, share any page with a
            magic link, and give agents a clean feed through a full REST API, an MCP server, and
@@ -341,7 +374,7 @@
       </article>
 
       <article class="gcard">
-        <div class="top"><div class="cat">Web · Nostr · Patronage</div><div class="num">08</div></div>
+        <div class="top"><div class="cat">Web · Nostr · Patronage</div><div class="num">10</div></div>
         <h3>PaterNostr</h3>
         <p>Patronage for the writers and makers worth keeping — your Nostr identity, your audience,
            paid directly over Lightning. No middlemen, no algorithm standing between you and your
@@ -355,7 +388,7 @@
       </article>
 
       <article class="gcard">
-        <div class="top"><div class="cat">Android · Pets</div><div class="num">09</div></div>
+        <div class="top"><div class="cat">Android · Pets</div><div class="num">11</div></div>
         <h3>Calm Dog</h3>
         <p>One-tap calming sounds for fireworks, storms, and time alone — built to steady a nervous
            dog, with a sleep timer for overnight.</p>
@@ -363,6 +396,8 @@
           <span class="status mono">Coming soon</span>
           <div class="links">
             <a class="glink" href="calm-dog/">App page →</a>
+            <a class="glink" href="calm-dog/privacy.html">Privacy →</a>
+            <a class="glink" href="calm-dog/terms.html">Terms →</a>
             <a class="glink" href="mailto:astartis-support@agentmail.to?subject=Notify%20me%20-%20Calm%20Dog">Notify me →</a>
           </div>
         </div>

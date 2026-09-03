@@ -37,16 +37,24 @@
   .note a{color:var(--accent)}
   @media (max-width:640px){h1{font-size:34px}.card{padding:48px 20px}}
 </style>
+<link rel="stylesheet" href="../assets/app-refresh.css">
 </head>
 <body>
+  <nav class="app-nav shell" aria-label="Astro93 navigation">
+    <a class="app-brand" href="../index.html">Astro93</a>
+    <div class="nav-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+  </nav>
   <div class="card">
-    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5z" />
-      <path d="M19 3v3M17.5 4.5h3" />
-    </svg>
+    <div class="logo-wrap">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5z" />
+        <path d="M19 3v3M17.5 4.5h3" />
+      </svg>
+    </div>
+    <p class="eyebrow">Your sky, on your device</p>
     <h1>Astro93</h1>
     <p class="tagline">A personal astrology companion that works offline.</p>
-    <p>Precise natal charts, daily transits, and a warm daily reading — calculated with
+    <p class="description">Precise natal charts, daily transits, and a warm daily reading — calculated with
       Swiss-Ephemeris-grade accuracy on your own device. The chart is free and stays free;
       only the AI readings are paid, because they cost us too.</p>
     <div class="links">
@@ -54,6 +62,7 @@
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Use</a>
     </div>
+    <ul class="trust" aria-label="App highlights"><li>Offline charts</li><li>No account</li><li>No trackers</li></ul>
     <p class="note">Contact: <a href="mailto:astartis-support@agentmail.to">astartis-support@agentmail.to</a>
       · <a href="../index.html">More by Jure Sršen</a></p>
   </div>
